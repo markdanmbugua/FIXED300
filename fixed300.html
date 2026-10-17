@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d0c" />
+  <meta name="description" content="We provide the best." />
+  <title>Trader Tactics | Private Market Intelligence</title>
+
+  <style>
+    :root {
+      --bg: #080d0c;
+      --card: #101816;
+      --green: #65e6b4;
+      --text: #f3f7f5;
+      --muted: #899892;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 35%,
+          rgba(39, 117, 83, .12), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+      letter-spacing: -.4px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(101,230,180,.12);
+      border: 1px solid rgba(101,230,180,.24);
+      color: var(--green);
+      font-size: 20px;
+    }
+
+    .status {
+      font-size: 11px;
+      color: var(--green);
+      border: 1px solid rgba(101,230,180,.22);
+      background: rgba(101,230,180,.06);
+      padding: 9px 12px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    main {
+      width: 100%;
+      max-width: 650px;
+      padding: 55px 22px 75px;
+      margin: auto;
+      text-align: center;
+      animation: enter .8s ease both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .logo {
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 32px;
+      border: 1px solid rgba(101,230,180,.3);
+      background: var(--card);
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 12px 55px rgba(0,0,0,.3);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-fallback {
+      color: var(--green);
+      font-size: 46px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      font-weight: 780;
+      margin-bottom: 22px;
+    }
+
+    h1 span { color: var(--green); }
+
+    .description {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    .card {
+      text-align: left;
+      background: linear-gradient(145deg,
+        rgba(255,255,255,.045), rgba(255,255,255,.015));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 23px;
+      margin: 0 auto 18px;
+    }
+
+    .card-label {
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: #dce5e0;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(101,230,180,.1);
+      color: var(--green);
+    }
+
+    .join {
+      width: 100%;
+      min-height: 60px;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-radius: 14px;
+      background: var(--green);
+      color: #07130e;
+      font-size: 15px;
+      font-weight: 800;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .join:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 35px rgba(101,230,180,.18);
+    }
+
+    .join:active { transform: scale(.98); }
+
+    .arrow { font-size: 21px; }
+
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    .hint a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      padding: 22px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: #697770;
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+
+    footer a { color: #a4b3ab; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 20px 17px; }
+      .brand { font-size: 14px; }
+      .brand-icon { width: 34px; height: 34px; }
+      .status { font-size: 9px; padding: 8px; }
+      main { padding: 42px 19px 55px; }
+      h1 { letter-spacing: -1.4px; }
+      .description { font-size: 14px; }
+      .card { padding: 19px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/" class="brand" aria-label="Trader Tactics home">
+      <div class="brand-icon">↗</div>
+      <span>FIXED300</span>
+    </a>
+    <div class="status">● Private channel</div>
+  </header>
+
+  <main>
+    <div class="eyebrow">
+      <span class="dot"></span>
+      FIXED 300
+    </div>
+
+    <div class="logo">
+      <!-- Replace with your real logo image URL -->
+      <img
+        src="YOUR_LOGO_IMAGE_URL"
+        alt="Trader Tactics channel logo"
+        onerror="this.style.display='none'"
+      />
+      <span class="logo-fallback">T</span>
+    </div>
+
+    <h1>Open FIXED 300<br />on <span>Telegram</span></h1>
+
+    <p class="description">
+      WE PROVIDE THE BEST.
+    </p>
+
+    <section class="card">
+      <div class="card-label">WHAT YOU'LL FIND INSIDE</div>
+
+      <div class="benefit">
+        <span class="check">✓</span>
+        Daily market updates and analysis
+      </div>
+
+      <div class="benefit">
+        <span class="check">✓</span>
+        Trade ideas and market insights
+      </div>
+
+      <div class="benefit">
+        <span class="check">✓</span>
+        Community updates in one place
+      </div>
+    </section>
+
+    <a
+      class="join"
+      href="https://t.me/fix300kj"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="join-button"
+    >
+      <svg width="23" height="23" viewBox="0 0 24 24"
+        fill="currentColor" aria-hidden="true">
+        <path d="M21.8 3.2 18.5 20c-.25 1.18-.9
+          1.46-1.83.91l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.03.5
+          l.36-5.14 9.35-8.45c.41-.36-.09-.56-.63-.2L5.68
+          13.5.7 11.94c-1.08-.34-1.1-1.08.23-1.6L20.4
+          2.75c.9-.33 1.7.22 1.4.45Z"/>
+      </svg>
+      Open Telegram Channel
+      <span class="arrow">→</span>
+    </a>
+
+    <p class="hint">
+      If Telegram does not open, try opening this page in your
+      Telegram app or use a network connection where Telegram is available.
+    </p>
+  </main>
+
+  <footer>
+    <p>FIXED 300  · @KEISHACARTER</p>
+    <p style="margin-top:10px">
+      ADS BY HAMEED ·
+      <a href="https://t.me/fix300kj"
+         target="_blank" rel="noopener noreferrer">
+        WhatsApp Contact
+      </a>
+    </p>
+  </footer>
+</body>
+</html>
